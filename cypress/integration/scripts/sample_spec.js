@@ -4,7 +4,7 @@ context('Huel Website', () => {
       cy.visit('https://uk.huel.com/')
     })
   
-    it('Can see the cookie banner', () => {
+    it('the cookie banner is visible', () => {
       cy.title().should('include', 'Huel | Complete Food')
   
       cy.get('.cookieBanner')
@@ -34,7 +34,7 @@ context('Huel Website', () => {
           .should('have.class', 'is-active')
       })
 
-      it('Can buy that magic powder', () => {
+      it('Buy Complete protein', () => {
         cy.log('Awesomeness')
     
         cy.contains('Shop Huel').click()
@@ -49,20 +49,21 @@ context('Huel Website', () => {
           .should('contain.text', 'Huel Black Edition')
           .should('contain.text', 'Huel Hot & Savoury')
     
-        cy.contains('Shop Black Edition').click()
+        cy.contains('Shop Complete Protein').click()
     
         // Panel exists
         cy.get('.panel-flavours').should('be.visible')
     
         // Right elements are preselected
-        cy.get('[aria-label="Salted Caramel Quantity"]').should('have.value', '1')
-        cy.get('[aria-label="Banana Quantity"]').should('have.value', '1')
+        cy.get('[aria-label="Vanilla Fudge Quantity"]').should('have.value', '1')
+        cy.get('[aria-label="Strawberries & Cream Quantity"]').should('have.value', '1')
     
-        cy.get('[aria-label="Vanilla Increase Quantity"]')
+        cy.get('[aria-label="Strawberries & Cream Increase Quantity"]')
           .click()
           .click()
     
-        cy.get('[aria-label="Vanilla Quantity"]').should('have.value', '2')
+        cy.get('[aria-label="Vanilla Fudge Quantity"]').should('have.value', '1')
+        cy.get('[aria-label="Strawberries & Cream Quantity"]').should('have.value', '3')
     
         cy.contains('Subscribe | Every').click()
     
