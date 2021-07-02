@@ -1,4 +1,4 @@
-context('Huel Website', () => {
+ context('Huel Website', () => {
     beforeEach(() => {
       cy.viewport('macbook-16')
       cy.visit('https://uk.huel.com/')
@@ -10,6 +10,13 @@ context('Huel Website', () => {
       cy.get('.cookieBanner')
         .should('be.visible')
     })
+
+    it('Should have a title', () => {
+      cy.contains(`The World's no. 1 Complete Food`)
+
+    })
+
+
 
     it('Navbar works or desktop and mobile devices', () => {
         cy.get('.navbar-brand').should('be.visible')
