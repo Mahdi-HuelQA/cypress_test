@@ -41,8 +41,33 @@
           .should('have.class', 'is-active')
       })
 
+      //Test Huel Bars purchase, return to home
+
+      it('Buy Huel bars', ()=>{
+        cy.log('Test Huel Bars')
+        cy.contains('Shop Huel').click()
+
+        cy.contains('Shop Bars').click()
+
+        // Flavours Panel is there! and have correct title
+        cy.get('panel panel-flavours').should('be.visible')
+        cy.get('panel-heading').should('include', 'Flavours')
+
+        // Flavours are present & have correct default values
+        cy.get('[aria-label="Selection Box - 18 Bars Quantity"]').should('have.value', '2')
+        cy.get('[aria-label="Peanut Butter - 15 Bars"]').should('have.value', 'undefined')
+        cy.get('[aria-label="Peanut Butter - 15 Bars Increase Quantity"]')
+        .click().click()
+
+        //Return to Home to restart with new products
+        cy.viewport('macbook-16')
+        cy.visit('https://uk.huel.com/')
+        
+      })
+
+      // Test Protein purchase
       it('Buy Complete protein', () => {
-        cy.log('Awesomeness')
+        cy.log('Test Protein!!')
     
         cy.contains('Shop Huel').click()
     
