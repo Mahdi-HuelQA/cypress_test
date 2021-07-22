@@ -50,8 +50,9 @@
         cy.contains('Shop Bars').click()
 
         // Flavours Panel is there! and have correct title
-        cy.get('panel panel-flavours').should('be.visible')
-        cy.get('panel-heading').should('include', 'Flavours')
+       cy.get('.panel-flavours').should('be.visible')
+        
+        cy.get('.panel-flavours').children().contains('Flavours')
 
         // Flavours are present & have correct default values
         cy.get('[aria-label="Selection Box - 18 Bars Quantity"]').should('have.value', '2')
