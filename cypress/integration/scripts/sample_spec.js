@@ -56,9 +56,9 @@
 
         // Flavours are present & have correct default values
         cy.get('[aria-label="Selection Box - 18 Bars Quantity"]').should('have.value', '2')
-        cy.get('[aria-label="Peanut Butter - 15 Bars"]').should('have.value', 'undefined')
         cy.get('[aria-label="Peanut Butter - 15 Bars Increase Quantity"]')
         .click().click()
+        cy.get('[aria-label="Peanut Butter - 15 Bars Quantity"]').should('have.value', '2')
 
         //Return to Home to restart with new products
         cy.viewport('macbook-16')
