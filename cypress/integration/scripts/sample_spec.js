@@ -55,7 +55,11 @@
         cy.get('.panel-flavours').children().contains('Flavours')
 
         // Flavours are present & have correct default values
+        
+        cy.get('[aria-label="Selection Box - 18 Bars Increase Quantity"]')
+        .click().click()
         cy.get('[aria-label="Selection Box - 18 Bars Quantity"]').should('have.value', '2')
+
         cy.get('[aria-label="Peanut Butter - 15 Bars Increase Quantity"]')
         .click().click()
         cy.get('[aria-label="Peanut Butter - 15 Bars Quantity"]').should('have.value', '2')
@@ -87,16 +91,21 @@
         // Panel exists
         cy.get('.panel-flavours').should('be.visible')
     
-        // Right elements are preselected
-        cy.get('[aria-label="Vanilla Fudge Quantity"]').should('have.value', '1')
-        cy.get('[aria-label="Strawberries & Cream Quantity"]').should('have.value', '1')
+        // Right elements are preselected// changes applkied so have to change code
+        // cy.get('[aria-label="Vanilla Fudge Quantity"]').should('have.value', '1')
+        // cy.get('[aria-label="Strawberries & Cream Quantity"]').should('have.value', '1')
     
+        //Increase quantity of both flavours
         cy.get('[aria-label="Strawberries & Cream Increase Quantity"]')
           .click()
           .click()
-    
-        cy.get('[aria-label="Vanilla Fudge Quantity"]').should('have.value', '1')
-        cy.get('[aria-label="Strawberries & Cream Quantity"]').should('have.value', '3')
+
+          cy.get('[aria-label="Vanilla Fudge Increase Quantity"]')
+          .click()
+          .click()
+       //Check quantity
+        cy.get('[aria-label="Vanilla Fudge Quantity"]').should('have.value', '2')
+        cy.get('[aria-label="Strawberries & Cream Quantity"]').should('have.value', '2')
     
         cy.contains('Subscribe | Every').click()
     
